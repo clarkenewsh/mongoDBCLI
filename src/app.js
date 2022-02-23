@@ -21,13 +21,11 @@ const app = async (yargsObj) => {
         } else if (yargsObj.update) {
             // update a single movie in the db
             const movie = new Movie(yargsObj.title, yargsObj.actor, yargsObj.rating);
-            // const filter = {title: "Testing update"}
             console.log(await movie.update(collection));
 
         }   else if (yargsObj.delete) {
-            // update a single movie in the db
+            // delete a single movie in the db
             const movie = new Movie(yargsObj.title, yargsObj.actor, yargsObj.rating);
-            // const filter = {title: "Testing update"}
             console.log(await movie.delete(collection));
 
         } else {
