@@ -19,16 +19,16 @@ class Movie {
     async update(collection) {
         // update one from the db
         return await collection.updateOne(
-            {title: "Spiderman"}, 
+            {title: this.title}, 
             {$set:{
-                actor: `Updating actor test`
+                actor: this.actor
                 }  
             }
         );
     }
 
     async delete(collection) {
-        return await collection.deleteOne({title: "Spiderman"});
+        return await collection.deleteOne({title: this.title });
     }
 }
 
