@@ -21,10 +21,9 @@ class Movie {
         return await collection.updateOne(
             {title: "Spiderman"}, 
             {$set:{
-                actor: `updating actors`
-            }  
-        }
-
+                actor: this
+                }  
+            }
         );
 
     }
