@@ -11,12 +11,19 @@ const app = async (yargsObj) => {
     try {
         if(yargsObj.add) {
             // take movie info, add it to the mongodb database and console.log a success message
-            const movie = new Movie(yargsObj.title, yargsObj.actor);
+            const movie = new Movie(yargsObj.title, yargsObj.actor, yargsObj.rating);
             console.log(await movie.add(collection));
         } else if (yargsObj.list) {
             // list all movies in database
-            const movie = new Movie(yargsObj.title, yargsObj.actor);
+            const movie = new Movie(yargsObj.title, yargsObj.actor, yargsObj.rating);
             console.log(await movie.list(collection));
+
+        } else if (yargsObj.update) {
+            // update a single movie in the db
+            const movie = new Movie(yargsObj.title, yargsObj.actor);
+            // const filter = {title: "Testing update"}
+            console.log(await movie.update(collection));
+
         } else {
             console.log("incorrect command");
         }
